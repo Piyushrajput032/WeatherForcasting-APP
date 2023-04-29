@@ -1,16 +1,9 @@
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Button,
-} from "@mui/material";
 import React from "react";
 interface Props {
   setQuery: any;
 }
 const TopButtons: React.FC<Props> = ({ setQuery }) => {
-  const [city, setCity] = React.useState("");
+  
   const cities: { id: number; title: string }[] = [
     {
       id: 1,
@@ -51,7 +44,13 @@ const TopButtons: React.FC<Props> = ({ setQuery }) => {
           );
         })}
       </div>
-      {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
+      
+    </div>
+  );
+};
+
+export default TopButtons;
+{/* <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="cities" className="text-red-400">Select City</InputLabel>
       <Select className="shadow-md"
         value={city}
@@ -78,8 +77,3 @@ const TopButtons: React.FC<Props> = ({ setQuery }) => {
         
       </Select>
       </FormControl> */}
-    </div>
-  );
-};
-
-export default TopButtons;

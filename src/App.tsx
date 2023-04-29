@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Typography, Container } from "@mui/material";
 import "./App.css";
 import TopButtons from "./components/TopButtons";
 import { ToastContainer, toast } from 'react-toastify';
@@ -38,8 +37,8 @@ function App() {
     return 
   }
   return (
-    <>
-      <div className={`h-fit rounded-md shadow-md shadow-gray-400 mx-auto 
+    <div>
+      <div className={`h-fit  rounded-md shadow-md shadow-gray-400 mx-auto 
       max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br ${formatBackground()}`}>
         {/* <Typography variant='h2' color="text.secondary" align="left">Hello World</Typography> */}
 
@@ -56,7 +55,7 @@ function App() {
         )}
          <ToastContainer autoClose={5000} theme='colored' newestOnTop={true}/>
       </div>
-    </>
+    </div>
   );
 }
 

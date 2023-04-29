@@ -47,21 +47,21 @@ const formatCurrentWeather = (data: any) => {
 
 const formatForcastWeather = (data: any) => {
   let { timezone, daily, hourly } = data;
-  daily = daily.slice(1, 6).map(d=>{
-    return{
-      title:formatToLocatTime(d.dt,timezone,'ccc'),
-      temp:d.temp.day,
-      icon:d.weather[0].icon
+  daily = daily.slice(1, 6).map((item: any) => {
+    return {
+      title: formatToLocatTime(item.dt, timezone, 'ccc'),
+      temp: item.temp.day,
+      icon: item.weather[0].icon
     }
   });
-  hourly = hourly.slice(1, 6).map(d=>{
-    return{
-      title:formatToLocatTime(d.dt,timezone,'hh:mm a'),
-      temp:d.temp,
-      icon:d.weather[0].icon
+  hourly = hourly.slice(1, 6).map((item: any) => {
+    return {
+      title: formatToLocatTime(item.dt, timezone, 'hh:mm a'),
+      temp: item.temp,
+      icon: item.weather[0].icon
     }
   });
-  return {timezone,daily,hourly}
+  return { timezone, daily, hourly }
 };
 
 const getFormattedWeatherData = async (searchParams: any) => {
