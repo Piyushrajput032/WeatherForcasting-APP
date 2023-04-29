@@ -33,11 +33,7 @@ const TopButtons: React.FC<Props> = ({ setQuery }) => {
       title: "Ranchi",
     },
   ];
-  // function handlecity(a: any) {
-  //   setCity(a.target.value);
-  //   console.log(city);
-  //   setQuery({q:city})
-  // }
+
  
   return (
     <div>
@@ -47,7 +43,7 @@ const TopButtons: React.FC<Props> = ({ setQuery }) => {
             <button
               key={index}
              
-              className="text-white text-xl font-light"
+              className="text-white text-xl font-light transition ease-out hover:scale-110"
               onClick={() => setQuery({q:city.title})}
             >
               {city.title}
