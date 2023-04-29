@@ -1,16 +1,23 @@
 import React from 'react'
+import { formatToLocatTime } from '../services/webServices'
 
-const TimeandLocation = () => {
+interface Props{
+  weather:{dt:any,timezone:any,name:string,country:string},
+}
+const TimeandLocation:React.FC<Props>=({weather})=> {
+
+  // console.log(weather.dt)
   return (
     <div>
     <div className='flex items-center justify-center my-6'>
         <p className='text-xl text-white font-light'>
-            Tuesday,31 May 2023 | Local time: 12:48 PM
+           
+            {formatToLocatTime(weather.dt,weather.timezone)}
         </p>
     </div>
     <div className='flex items-center justify-center my-3'>
         <p className='text-white text-3xl font-medium'>
-            Berlin, BE
+           {`${weather.name}, ${weather.country}`}
         </p>
     </div>
     </div>

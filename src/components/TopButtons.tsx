@@ -1,45 +1,57 @@
-import { FormControl, InputLabel, MenuItem, Select,Button } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Button,
+} from "@mui/material";
 import React from "react";
-
-const TopButtons = () => {
+interface Props {
+  setQuery: any;
+}
+const TopButtons: React.FC<Props> = ({ setQuery }) => {
   const [city, setCity] = React.useState("");
-  const cities: { id: number; city: string }[] = [
+  const cities: { id: number; title: string }[] = [
     {
       id: 1,
-      city: "Aurangabad",
+      title: "Aurangabad",
     },
     {
       id: 2,
-      city: "London",
+      title: "London",
     },
     {
       id: 3,
-      city: "Delhi",
+      title: "Delhi",
     },
     {
       id: 4,
-      city: "Tokyo",
+      title: "Tokyo",
     },
     {
       id: 5,
-      city: "Ranchi",
+      title: "Ranchi",
     },
   ];
- function handlecity(a:any){
-    setCity(a.target.value)
-    console.log(city);
- }
-  console.log(city);
+
+ 
   return (
     <div>
       <div className="flex items-center justify-around my-6">
-          {
-            cities.map((item,index)=>{return(
-              <button key={index} className="text-white text-xl font-light">{item.city}</button>)
-            })
-          }
+        {cities.map((city, index) => {
+          return (
+            <button
+              key={index}
+             
+              className="text-white text-xl font-light transition ease-out hover:scale-110"
+              onClick={() => setQuery({q:city.title})}
+            >
+              {city.title}
+            </button>
+          );
+        })}
       </div>
-    {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
+      {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="cities" className="text-red-400">Select City</InputLabel>
       <Select className="shadow-md"
         value={city}
